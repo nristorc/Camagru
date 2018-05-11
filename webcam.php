@@ -1,6 +1,7 @@
 <?php
-include "inc/header.php";
+require_once 'inc/bootstrap.php';
 App::getAuth()->restrict();
+include "inc/header.php";
 ?>
 
 <?php print_r($_SESSION); ?>
