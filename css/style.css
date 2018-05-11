@@ -1,0 +1,421 @@
+/* ----------------------------------- GENERAL ------------------------------- */
+
+@font-face
+{
+    font-family: "Roboto";
+    src: url("../ressources/font/Roboto.ttf");
+}
+
+@font-face
+{
+    font-family: "Gaegu";
+    src: url("../ressources/font/Gaegu.ttf");
+}
+
+body
+{
+    width: 100%;
+    font-family: "Roboto", serif;
+    background-color: #FAFAFA;
+}
+
+body:after
+{
+    content: "";
+    display: block;
+}
+
+/* ----------------------------------- HEADER -------------------------------- */
+
+@media (max-width: 655px)
+{
+    .search
+    {
+        display: none;
+        clear: both;
+    }
+}
+
+header
+{
+    background-color: white;
+    width: 100%;
+    height: 77px;
+    border-bottom: thin solid whitesmoke;
+}
+
+#header_section
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 77px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#logo img
+{
+    height: 40px;
+}
+
+#search_bar
+{
+    border: thin solid whitesmoke;
+}
+
+.search
+{
+    height: 28px;
+    width: 215px;
+    text-align: center;
+}
+
+#profil_icon img
+{
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+/* ----------------------------------- FOOTER --------------------------------- */
+
+footer
+{
+    background-color: white;
+    width: 100%;
+    height: 77px;
+    border-top: thin solid whitesmoke;
+}
+
+#footer_section
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 77px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#social_network img
+{
+    height: 40px;
+    padding: 10px;
+}
+
+/* --------------------------------- WEBCAM ------------------------------------- */
+
+@keyframes fadeEffect
+{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+section
+{
+    display: flex;
+    width: 100%;
+}
+
+#image
+{
+    width: 70%;
+    text-align: center;
+    padding: 10px;
+}
+
+#edit_image
+{
+    width: 20%;
+    text-align: center;
+    border: 1px solid #CCC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+
+}
+
+.tab
+{
+    overflow: hidden;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid #CCC;
+    background-color: #F1F1F1
+}
+
+
+.tab button
+{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover
+{
+    background-color: #DDD;
+}
+
+.tab button.active
+{
+    background-color: #CCC;
+}
+
+.tabcontent
+{
+    display: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    justify-content: center;
+    animation: fadeEffect 1s;
+    padding: 6px 12px;
+    border: 1px solid #CCC;
+    border-top: none;
+}
+
+/* --------------------------------------- ACCOUNT NOT LOGGED -------------------------------------------- */
+
+#section_account
+{
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    border: solid ghostwhite;
+    border-radius: 3px;
+}
+
+#sign_up
+{
+    text-align: center;
+    width: 30%;
+}
+
+#sign_in
+{
+    text-align: center;
+    width: 30%;
+    margin: auto;
+}
+
+#description
+{
+    font-family: 'Gaegu', serif;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.form
+{
+    background-color: #FAFAFA;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    margin: 2%;
+}
+
+.form_submit
+{
+    width: 50%;
+    height: 30px;
+    margin: 2%;
+    cursor: pointer;
+}
+
+/* ----------------------------------------- SLIDESHOW ------------------------------------------ */
+
+@-webkit-keyframes fade
+{
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+}
+
+@keyframes fade
+{
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+}
+
+.slideshow-container
+{
+    max-width: 960px;
+    border: thin solid whitesmoke;
+    align-items: center;
+    margin: auto;
+}
+
+.mySlides
+{
+    display: none;
+}
+
+.dot
+{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 3s ease;
+}
+
+.active, .dot:hover
+{
+    background-color: #717171;
+}
+
+.slideshow_dot
+{
+    text-align: center;
+}
+
+
+.fade
+{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 3s;
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+/* --------------------------------------- EDIT PROFIL ----------------------------- */
+
+#edit_profil
+{
+    text-align: center;
+    margin-top: 2%;
+}
+
+#check_pref
+{
+    width: 0;
+}
+
+#edit_profil input
+{
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+}
+
+#button_edit
+{
+    width: 250px;
+    height: 30px;
+}
+
+/* -------------------------------------- WEBCAM FILTER ------------------------------ */
+
+.grayscale
+{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.sepia
+{
+    -webkit-filter:sepia(0.8);
+    filter: sepia(0.8);
+}
+
+.blur
+{
+    -webkit-filter:blur(3px);
+    filter: blur(3px);
+}
+
+.brightness
+{
+    -webkit-filter:brightness(3);
+    filter: brightness(3);
+}
+
+.contrast
+{
+    -webkit-filter:contrast(4);
+    filter: contrast(4);
+}
+
+.hue-rotate
+{
+    -webkit-filter: hue-rotate(90deg);
+    filter: hue-rotate(90deg);
+}
+
+.hue-rotate2
+{
+    -webkit-filter:hue-rotate(180deg);
+    filter: hue-rotate(180deg);
+}
+
+.hue-rotate3
+{
+    -webkit-filter:hue-rotate(270deg);
+    filter: hue-rotate(270deg);
+}
+
+.saturate
+{
+    -webkit-filter:saturate(10);
+    filter: saturate(10);
+}
+
+.invert
+{
+    -webkit-filter:invert(1);
+    filter: invert(1);
+}
+
+/* ---------------------------------------------- INDEX ----------------------------------------- */
+
+#h1_index
+{
+    text-align: center;
+    font-size: 2vw;
+}
+
+#photo_index
+{
+    text-align: center;
+    background-color: white;
+    margin: 5% 27%;
+    border: solid thin whitesmoke;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#photo_index img
+{
+    width: 90%;
+}
+
+/* -------------------------------------------- ACCOUNT LOGGED IN ------------------------------- */
+
+#account_logged
+{
+    border: solid thin whitesmoke;
+    background-color: white;
+    margin: 5% 25%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#button_accountlogged
+{
+    width: 150px;
+    height: 25px;
+}
