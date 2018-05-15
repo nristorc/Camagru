@@ -42,7 +42,8 @@ while ($display_gallery = $ret->fetch()) {
         <?= $display_gallery->login;?><br/>
         <hr/>
         <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
-        Upload date: <?= $display_gallery->creation_date;?>
+        Upload date: <?= $display_gallery->creation_date;?><br/>
+        <a href="delete_photo.php?photo_id=<?=$display_gallery->id_photo;?>">Supprimer</a>
     </div>
 
     <?php

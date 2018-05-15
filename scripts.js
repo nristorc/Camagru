@@ -72,7 +72,7 @@
         document.getElementById('hidden_data').value = dataURL;
         var fd = new FormData(document.forms["form1"]);
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'webcamDataTest.php', true);
+        xhr.open('POST', 'webcamData.php', true);
         console.log(xhr);
         xhr.upload.onprogress = function(e)
         {
@@ -101,94 +101,6 @@
         console.log();
     }, false);
 
-    nonebutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[0 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    graybutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[1 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    sepiabutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[2 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    blurbutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[3 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    brightbutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[4 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    contrastbutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[5 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    rev1button.addEventListener('click', function()
-    {
-    canvas.className = '';
-    var effect = filters[6 % filters.length];
-    if (effect)
-        canvas.classList.add(effect);
-    }, false);
-
-    rev2button.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[7 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    rev3button.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[8 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    saturbutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[9 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
-    invertbutton.addEventListener('click', function()
-    {
-        canvas.className = '';
-        var effect = filters[10 % filters.length];
-        if (effect)
-            canvas.classList.add(effect);
-    }, false);
-
 })();
 
 /* -------------------------------------------------------------- */
@@ -213,8 +125,31 @@ function openTab(evt, tab)
 
 /* -------------------------------------------------------------- */
 
-var loadFile = function(event)
-{
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-};
+
+function showPicture() {
+    var sourceOfPicture = "images/superposition_image/chat.png";
+    var img = document.getElementById('output2')
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+}
+
+function showPicture2() {
+    var sourceOfPicture = "images/superposition_image/chien.png";
+    var img = document.getElementById('output2')
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+}
+
+function showPicture3() {
+    var sourceOfPicture = "images/superposition_image/perroquet.png";
+    var img = document.getElementById('output2')
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+}
+
+function showPicture4() {
+    var sourceOfPicture = "images/superposition_image/unicorn.png";
+    var img = document.getElementById('output2')
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+}

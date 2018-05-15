@@ -21,7 +21,7 @@
             reset_token VARCHAR(60) NULL,
             reset_at DATETIME NULL,
             remember_token VARCHAR(255) NULL,
-            path_to_avatar VARCHAR(255) DEFAULT 'ressources/avatar_default.png',
+            path_to_avatar VARCHAR(255) DEFAULT 'images/miniatures_profil/avatar_default.png',
             pref_comments_email INT NOT NULL DEFAULT '1')";
 
     $DB_PHOTO = "CREATE TABLE IF NOT EXISTS camagru.photo (

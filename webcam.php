@@ -3,6 +3,8 @@ require 'inc/bootstrap.php';
 App::getAuth()->restrict();
 require "inc/header.php";
 
+print_r($_SESSION);
+
 ?>
 <section>
     <div id="add_image">
@@ -31,8 +33,7 @@ require "inc/header.php";
             <br/>
             <video id="video"></video><br/>
             <canvas id="canvas"></canvas>
-            <button id="startbutton"> Take a photo </button><br/>
-            <a href="webcam.php"><button onclick="uploadPic()"> Upload photo </button></a><br/>
+            <a href="webcamData.php"><button id="startbutton"> Take a photo </button></a><br/>
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
             </form>
@@ -41,45 +42,39 @@ require "inc/header.php";
         <div id="file_upload" class="tabcontent" style="display: block">
             <form method="post" action="webcamData.php" enctype="multipart/form-data" id="form">
                 Select image to upload:
-                <input type="file" name="file" id="file" onchange="form.submit();"/><br/>
-                <img id="output" src="
-                <?php
-                    if (isset($_SESSION['fileToUpload']) && !empty($_SESSION['fileToUpload']))
-                        echo $_SESSION['fileToUpload']['path_tmp'];
-                ?> "/><br/>
+                <input type="file" name="file" id="file" onchange="form.submit();"/><br/><br/>
+                <div id="wrapper">
+                    <img id="default_upload" src="ressources/default_upload.jpg"/>
+                    <img id="output" src="
+                    <?php
+                        if (isset($_SESSION['fileToUpload']) && !empty($_SESSION['fileToUpload']))
+                            echo $_SESSION['fileToUpload']['path_tmp'];
+                    ?> "/><br/>
+                    <img id="output2" src=""/>
+                </div>
            </form>
-        </div id="filter">
-        <h3> Filter </h3>
-            <input type="image" id="nonebutton" src="ressources/nofilter.jpg">
-            <input type="image" id="graybutton" src="ressources/nofilter.jpg" style="filter: grayscale(100%);">
-            <input type="image" id="sepiabutton" src="ressources/nofilter.jpg" style="filter: sepia(0.8);">
-            <input type="image" id="blurbutton" src="ressources/nofilter.jpg" style="filter: blur(3px);">
-            <input type="image" id="brightbutton" src="ressources/nofilter.jpg" style="filter: brightness(3);">
-            <input type="image" id="contrastbutton" src="ressources/nofilter.jpg" style="filter: contrast(4);">
-            <input type="image" id="rev1button" src="ressources/nofilter.jpg" style="filter: hue-rotate(90deg);">
-            <input type="image" id="rev2button" src="ressources/nofilter.jpg" style="filter: hue-rotate(180deg);">
-            <input type="image" id="rev3button" src="ressources/nofilter.jpg" style="filter: hue-rotate(270deg);">
-            <input type="image" id="saturbutton" src="ressources/nofilter.jpg" style="filter: saturate(10);">
-            <input type="image" id="invertbutton" src="ressources/nofilter.jpg" style="filter: invert(1);">
         </div>
+    </div>
 
     <div id="edit_image">
         <div id="watermarks">
             <h3> Watermarks </h3>
-            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png">
-                <img src="images/superposition_image/chat.png" name="href"></button><br/>
-            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png">
-                <img src="images/superposition_image/chien.png" name="href"></button><br/>
-            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png">
-                <img src="images/superposition_image/perroquet.png" name="href"></button><br/>
-            <button id="superp_photo_licorne" data-href="images/superposition_image/unicorn.png">
-                <img src="images/superposition_image/unicorn.png" name="href"></button><br/>
+            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png" onclick="showPicture()">
+                <img src="images/superposition_image/chat.png" name="href">
+            </button><br/>
+            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png" onclick="showPicture2()">
+                <img src="images/superposition_image/chien.png" name="href">
+            </button><br/>
+            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png" onclick="showPicture3()">
+                <img src="images/superposition_image/perroquet.png" name="href">
+            </button><br/>
+            <button id="superp_photo_licorne" data-href="images/superposition_image/unicorn.png" onclick="showPicture4()">
+                <img src="images/superposition_image/unicorn.png" name="href">
+            </button><br/>
             <form method="post" id="final_submit" action="webcamData.php">
                 <input type="submit" value="Valider" name="submit"/>
             </form>
         </div>
     </div>
-
 </section>
-
 <?php require 'inc/footer.php'?>

@@ -11,7 +11,6 @@ $(document).ready(function($){
     $superposition_chat.click(function(e){
         e.preventDefault();
         superposition_chat_funct();
-
     });
 
     $superposition_chien.click(function(e){
@@ -30,7 +29,7 @@ $(document).ready(function($){
     });
 
     function superposition_chat_funct() {
-        $.post('webcamDataTest.php', {
+        $.post('webcamData.php', {
             href: $superposition_chat.data('href')
 
         }).done(function (data, textStatus, jqXHR) {
@@ -42,7 +41,7 @@ $(document).ready(function($){
     }
 
     function superposition_licorne_funct() {
-        $.post('webcamDataTest.php', {
+        $.post('webcamData.php', {
             href: $superposition_licorne.data('href')
 
         }).done(function (data, textStatus, jqXHR) {
@@ -54,7 +53,7 @@ $(document).ready(function($){
     }
 
     function superposition_chien_funct() {
-        $.post('webcamDataTest.php', {
+        $.post('webcamData.php', {
             href: $superposition_chien.data('href')
 
         }).done(function (data, textStatus, jqXHR) {
@@ -66,7 +65,7 @@ $(document).ready(function($){
     }
 
     function superposition_perroquet_funct() {
-        $.post('webcamDataTest.php', {
+        $.post('webcamData.php', {
             href: $superposition_perroquet.data('href')
 
         }).done(function (data, textStatus, jqXHR) {
