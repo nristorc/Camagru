@@ -7,7 +7,7 @@
                 France
             </div>
             <div id="login">
-                &copy Alexis PARABOSCHI - aparabos
+                &copy Nina RISTORCELLI - nristorc
             </div>
             <div id="social_network">
                 <img src="ressources/facebook.png" alt="facebook" title="facebook">

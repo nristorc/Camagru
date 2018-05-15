@@ -72,7 +72,7 @@
 
             $upload_image = "images/" . $img['name'];
             move_uploaded_file($img['tmp_name'], $upload_image);
-            Img::creerMin($upload_image, "images/miniatures_profil", $img['name'], 150, 150);
+            Img::profil($upload_image, "images/miniatures_profil", $img['name'], 150, 150);
             //Img::convertJPG($upload_image);
             unlink("images/" . $img['name']);
             $path_update = "images/miniatures_profil/" . $img['name'];

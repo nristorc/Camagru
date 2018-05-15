@@ -1,7 +1,6 @@
 <?php require_once 'bootstrap.php' ?>
-
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
@@ -30,13 +29,10 @@
             </div>
         </div>
     </header>
-
 <?php if (Session::getInstance()->hasFlashes()): ?>
-
     <?php foreach (Session::getInstance()->getFlashes() as $type => $message): ?>
-           <div style="background-color: red; color: white;"<?= $type; ?>>
-               <?= $message; ?>
-              </div>
-
-        <?php endforeach; ?>
-    <?php endif; ?>
+        <div style="background-color: red; color: white;"<?= $type; ?>>
+            <?= $message; ?>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

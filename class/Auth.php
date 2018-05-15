@@ -125,10 +125,12 @@
 
         public function logout()
         {
-			setcookie('remember', NULL, -1);
-			$files = glob('images/tmp/' . $_SESSION['auth']->id . "_*");
+            setcookie('remember', NULL, -1);
+
+            $files = glob('images/tmp/' . $_SESSION['auth']->id . "_*");
             foreach ($files as $file)
                 unlink($file);
+
             $this->session->delete('auth');
             $this->session->delete('fileToUpload');
             $this->session->delete('photo_superp');

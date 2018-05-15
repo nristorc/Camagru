@@ -17,8 +17,9 @@ $login = $_SESSION['auth']->login;
 
 if (isset($_SESSION['photo_superp']) && !isset($_SESSION['fileToUpload']))
 {
+    print_r($_SESSION['photo_superp']);
     unset($_SESSION['photo_superp']);
-    die(json_encode($_SESSION['photo_superp']));
+    //die(json_encode($_SESSION['photo_superp']));
 }
 
 if (!isset($_SESSION['photo_superp']) && !empty($_FILES) && !isset($_POST['submit']))

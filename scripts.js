@@ -63,13 +63,42 @@
         canvas.height = height;
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
         var data = canvas.toDataURL('image/png', 0.5);
-        photo.setAttribute('src', data);
+        //photo.setAttribute('src', data);
+    }
+
+    function uploadPic()
+    {
+        var dataURL = canvas.toDataURL('image/png', 0.5);
+        document.getElementById('hidden_data').value = dataURL;
+        var fd = new FormData(document.forms["form1"]);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'webcamDataTest.php', true);
+        console.log(xhr);
+        xhr.upload.onprogress = function(e)
+        {
+            if (e.lenghtComputable)
+            {
+                var percentComplete = (e.loaded / e.total) * 100;
+                alert('Successfully uploaded');
+            }
+        };
+        xhr.onload = function () {
+
+        };
+        xhr.send(fd);
     }
 
     startbutton.addEventListener('click', function(ev)
     {
         takepicture();
         ev.preventDefault();
+    }, false);
+
+    startbutton.addEventListener('click', function(ev)
+    {
+        uploadPic();
+        ev.preventDefault();
+        console.log();
     }, false);
 
     nonebutton.addEventListener('click', function()
@@ -189,24 +218,3 @@ var loadFile = function(event)
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
 };
-
-function uploadPic()
-{
-    var dataURL = canvas.toDataURL('image/png', 0.5);
-    document.getElementById('hidden_data').value = dataURL;
-    var fd = new FormData(document.forms["form1"]);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'upload_data.php', true);
-    xhr.upload.onprogress = function(e)
-    {
-        if (e.lenghtComputable)
-        {
-            var percentComplete = (e.loaded / e.total) * 100;
-            alert('Successfully uploaded');
-        }
-    };
-    xhr.onload = function () {
-
-    };
-    xhr.send(fd);
-}
