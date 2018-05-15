@@ -134,6 +134,8 @@
             $this->session->delete('auth');
             $this->session->delete('fileToUpload');
             $this->session->delete('photo_superp');
+            $this->session->delete('webcam_tempo_name');
+            $this->session->delete('webcam_path_tmp');
         }
 
         public function resetPassword($db, $email)

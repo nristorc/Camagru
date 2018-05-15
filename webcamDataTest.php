@@ -18,12 +18,18 @@ if (isset($_POST) && (isset($_POST['href']) || isset($_POST['hidden_data']))){
 $id_member = $_SESSION['auth']->id;
 $login = $_SESSION['auth']->login;
 
+if (isset($_POST['submit']) && !isset($_SESSION['photo_superp']) && !isset($_SESSION['webcam_path_tmp']) && !isset($_SESSION['fileToUpload'])){
+    Session::getInstance()->setFlash('danger', "Merci de sélectionner une photo ou en prendre une via la webcam avant de valider");
+    App::redirect("webcamTest.php");
+    die();
+}
+
 if (isset($_SESSION['photo_superp']) && !isset($_SESSION['fileToUpload']) && !isset($_SESSION['webcam_path_tmp']))
 {
     echo 'juste superposable';
     print_r($_SESSION['photo_superp']);
     unset($_SESSION['photo_superp']);
-    //die(json_encode($_SESSION['photo_superp']));
+    die();
 }
 
 if (!isset($_SESSION['photo_superp']) && !empty($_FILES) && !isset($_POST['submit']))
@@ -85,11 +91,16 @@ if (isset($_SESSION['photo_superp']) && (isset($_SESSION['fileToUpload']) || (is
 
 if (!isset($_SESSION['photo_superp']) && (isset($_SESSION['fileToUpload']) || $_SESSION['webcam_path_tmp']) && isset($_POST['submit'])) {
 
+    if (isset($_SESSION['webcam_path_tmp'])){
+        unlink($_SESSION['webcam_path_tmp']);
+        unset($_SESSION['webcam_path_tmp']);
+        unset($_SESSION['webcam_tempo_name']);
+    }
     Session::getInstance()->setFlash('danger', "Merci de sélectionner une image superposable avant de valider");
     App::redirect("webcamTest.php");
 }
 
-if (isset($_SESSION['photo_superp']) && isset($_SESSION['fileToUpload']) && !isset($_SESSION['webcam'])&& isset($_POST['submit'])) {
+if (isset($_SESSION['photo_superp']) && isset($_SESSION['fileToUpload']) && !isset($_SESSION['webcam_path_tmp'])&& isset($_POST['submit'])) {
 
     $img_superp = substr($_SESSION['photo_superp'], 27, -3);
 
@@ -112,7 +123,7 @@ if (isset($_SESSION['photo_superp']) && isset($_SESSION['fileToUpload']) && !iss
     App::redirect("webcamTest.php");
 }
 
-if (isset($_SESSION['photo_superp']) && !isset($_SESSION['fileToUpload']) && isset($_SESSION['webcam'])&& isset($_POST['submit'])) {
+if (isset($_SESSION['photo_superp']) && !isset($_SESSION['fileToUpload']) && isset($_SESSION['webcam_path_tmp'])&& isset($_POST['submit'])) {
 
     $img_superp_name = substr($_SESSION['photo_superp'], 27, -3);
 
@@ -123,15 +134,14 @@ if (isset($_SESSION['photo_superp']) && !isset($_SESSION['fileToUpload']) && iss
 
     unlink($upload_image);
 
-    print_r($_SESSION);
-    die();
+    $path_update = "images/webcam/" . substr($_SESSION['webcam_tempo_name'], 0, -4) .
+        "_" . $img_superp_name . substr($_SESSION['webcam_tempo_name'], -3);
 
-    $path_update = "images/webcam/" . substr($_SESSION['fileToUpload']['name_tempo'], 0, -4) .
-        "_" . $img_superp . substr($_SESSION['fileToUpload']['name'], -3);
+    $db->query("INSERT INTO camagru.photo SET path_to_photo = ?, id_member = ?, login = ?, creation_date = NOW()",
+        [$path_update, $id_member, $login]);
 
-    $db->query("INSERT INTO camagru.photo SET path_to_photo = ?, id_member = ?, login = ?, creation_date = NOW()",[$path_update, $id_member, $login]);
-
-    unset($_SESSION['fileToUpload']);
+    unset($_SESSION['webcam_tempo_name']);
+    unset($_SESSION['webcam_path_tmp']);
 
     // Comment mettre le message flash alors que la page n'est pas reload...
     Session::getInstance()->setFlash('success', "Votre photo a bien ete upload");
