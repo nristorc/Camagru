@@ -1,14 +1,8 @@
 <?php include "inc/bootstrap.php";
 $auth = App::getAuth();
+
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="utf-8">
-    <title> Camagru </title>
-</head>
 <?php include "inc/header.php"; ?>
 <body>
 <h1 id="h1_index">Toutes les photos disponibles sur notre site</h1>
@@ -41,8 +35,7 @@ while ($display_gallery = $ret->fetch()) {
         <?= $display_gallery->login;?><br/>
         <hr/>
         <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
-        <a href="single_photo.php?id_photo=<?=$display_gallery->id_photo;?>">Liker</a>
-        <a href="display_comments.php?id_photo=<?=$display_gallery->id_photo;?>">Commenter</a>
+        <a href="comments_likes.php?id_photo=<?=$display_gallery->id_photo;?>">Commenter et Liker</a>
     </div>
 
     <?php
@@ -59,4 +52,3 @@ for ($i = 1; $i <= $nbrPage; $i++){
 
 </body>
 <?php include "inc/footer.php"; ?>
-</html>

@@ -114,7 +114,7 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="2097152"/>
                 <input type="file" name="img"/>
                 <br/>
-                <button id="button_edit"> Envoyer </button>
+                <button id="button_edit_1"> Envoyer </button>
             </form>
             <br/>
         </div>
@@ -128,7 +128,7 @@
                 Date de Naissance: <br/><input type="text" name="birthdate" value="<?=$_SESSION['auth']->birthdate; ?>"><br/>
                 Email : <br/><input type="text" name="email" value="<?=$_SESSION['auth']->email; ?>"><br/>
                 <br/>
-                <button id="button_edit">Changer ses données personnelles</button>
+                <button id="button_edit_2">Changer ses données personnelles</button>
             </form>
         </div>
 
@@ -138,32 +138,39 @@
                 <input type="password" name="password" placeholder="Changer de mot de passe"><br/>
                 <input type="password" name="password_confirm" placeholder="Confirmation du mot de passe"><br/>
                 <br/>
-                <button id="button_edit">Changer mon mot de passe</button>
+                <button id="button_edit_3">Changer mon mot de passe</button>
             </form>
             <br/>
         </div>
 
         <div id="profil_pref" class="tabcontent">
             <h2> Modifiez ses préférences </h2>
-            Recevoir un email lorsqu'un commentaire est ajouté <br/>à l'une de mes photos<br/>
-            <form action="checkbox_profile.php" method="post">
-                <input id="check_pref" type="checkbox" name="checkbox" value="<?=$_SESSION['auth']->pref_comments_email;?>"
+            <div>
+                Recevoir un email lorsqu'un commentaire est ajouté <br/>à l'une de mes photos<br/>
+                <form action="checkbox_profile.php" method="post">
+                    <input id="check_pref" type="checkbox" name="checkbox" value="<?=$_SESSION['auth']->pref_comments_email;?>"
 
-                    <?php
+                        <?php
 
-                    if ($_SESSION['auth']->pref_comments_email == 1){
-                        echo 'checked';
-                    }
+                        if ($_SESSION['auth']->pref_comments_email == 1){
+                            echo 'checked';
+                        }
 
-                    ?>
-                >
-                <br/>
-                <button type="submit" id="button_edit" name="comments_mail" value="OK">Modifier mes préférences</button>
-            </form>
+                        ?>
+                    >
+                    <br/>
+                    <button type="submit" id="button_edit_4" name="comments_mail" value="OK">Modifier mes préférences</button>
+                </form>
+            </div>
             <br/>
+            <div>
+                <form action="delete_account.php" method="post">
+                    <button style="border: solid 3px crimson; font-weight: bold; color: crimson">SUPPRIMER SON COMPTE</button>
+                </form>
+            </div>
         </div>
         <br/>
         <a href="account_logged_in.php">Retour Page de Profil</a>
     </div>
-    <script src="scripts.js"></script>
+    <script src="edit_profil.js"></script>
 <?php require_once 'inc/footer.php'; ?>

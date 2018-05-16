@@ -37,6 +37,9 @@ print_r($_SESSION);
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
             </form>
+            <form method="post" id="final_submit" action="webcamData.php">
+                <input type="submit" value="Valider" name="submit"/>
+            </form>
         </div>
 
         <div id="file_upload" class="tabcontent" style="display: block">
@@ -53,6 +56,9 @@ print_r($_SESSION);
                     <img id="output2" src=""/>
                 </div>
            </form>
+            <form method="post" id="final_submit" action="webcamData.php">
+                <input type="submit" value="Valider" name="submit"/>
+            </form>
         </div>
     </div>
 
@@ -71,10 +77,8 @@ print_r($_SESSION);
             <button id="superp_photo_licorne" data-href="images/superposition_image/unicorn.png" onclick="showPicture4()">
                 <img src="images/superposition_image/unicorn.png" name="href">
             </button><br/>
-            <form method="post" id="final_submit" action="webcamData.php">
-                <input type="submit" value="Valider" name="submit"/>
-            </form>
         </div>
     </div>
+    <script src="scripts.js"></script>
 </section>
 <?php require 'inc/footer.php'?>

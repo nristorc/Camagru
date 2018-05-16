@@ -4,8 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/likes_style.css">
-        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
         <title> Camagru </title>
     </head>
     <header>
@@ -13,18 +12,18 @@
             <div id="logo">
                 <a href="index.php"><img src="ressources/logo.png" alt="logo" title="logo"></a>
             </div>
-            <div id="search_bar">
+            <!--<div id="search_bar">
                 <input class="search" type="text" placeholder="&#128269Rechercher">
-            </div>
+            </div>-->
             <div id="profil_icon">
                 <a href="webcam.php"><img src="ressources/camera.png" alt="camera" title="camera"></a>
                 <?php if (isset($_SESSION['auth'])): ?>
                     <a href="account_logged_in.php"><img src="ressources/profil.png" alt="profil" title="Profil"></a>
                 <?php else: ?>
-                    <a href="account.php"><img src="ressources/profil.png" alt="profil" title="Inscription/Connection"></a>
+                    <a href="account.php"><img src="ressources/profil.png" alt="profil" title="Inscription/Connexion"></a>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['auth'])): ?>
-                    <a href="log_out.php"><img src="ressources/power_off.png" alt="deco" title="Deconnection"></a>
+                    <a href="log_out.php"><img src="ressources/power_off.png" alt="deco" title="Deconnexion"></a>
                 <?php endif; ?>
             </div>
         </div>

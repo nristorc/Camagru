@@ -8,6 +8,6 @@
     $comments->deleteCommentsWithChildren($db, $id);
 
     Session::getInstance()->setFlash('success', 'Le commentaire a bien été supprimé');
-    App::redirect("display_comments.php?id_photo=" . $comments->comment->photo_id);
+    App::redirect("comments_likes.php?id_photo=" . $comments->comment->photo_id);
 
 ?>

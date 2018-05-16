@@ -1,7 +1,6 @@
 <?php require 'inc/bootstrap.php';
 
-
-	$secret = "6LcKs1gUAAAAAIjzpGtaDf68G3teftD7q1EIEUi6";
+	/*$secret = "6LcKs1gUAAAAAIjzpGtaDf68G3teftD7q1EIEUi6";
     $response = $_POST['g-recaptcha-response'];
 	$remoteip = $_SERVER['REMOTE_ADDR'];
 	$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
@@ -10,7 +9,7 @@
         . "&remoteip=" . $remoteip ;
 	$decode = json_decode(file_get_contents($api_url), true);
 	if ($decode['success'] == true) {
-        if (!empty($_POST)) {
+        */if (!empty($_POST)) {
             $errors = array();
 
             $db = App::getDatabase();
@@ -39,17 +38,10 @@
             } else {
                 $errors = $validator->getErrors();
             }
-        }
+        //}
     }
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="css/style.css">
-        <title> Camagru </title>
-    </head>
     <?php include "inc/header.php"; ?>
     <body>
 
@@ -75,35 +67,10 @@
                     <input class="form" type="email" name="email" placeholder="Email Address" required> <br/>
                     <input class="form" type="password" name="password" placeholder="Password" required> <br/>
                     <input class="form" type="password" name="password_confirm" placeholder="Confirm Password" required> <br/>
-                    <div class="g-recaptcha" data-sitekey="6LcKs1gUAAAAAFzW-Eqb1W_lryR98wVFOmM6tK7U"></div>
+                    <!--<div class="g-recaptcha" data-sitekey="6LcKs1gUAAAAAFzW-Eqb1W_lryR98wVFOmM6tK7U"></div>-->
                     <button class="form_submit" type="submit"> Sign-up ! </button><br/>
                 </form>
             </div>
-            <?php
-                $auth = App::getAuth();
-                $db = App::getDatabase();
-                $auth->connectFromCookie($db);
-
-                if ($auth->user()){
-                    App::redirect('account_logged_in.php');
-                }
-
-                if (!empty($_POST) && !empty($_POST['login']) && !empty($_POST['password'])){
-
-                    $user = $auth->login($db, $_POST['login'], $_POST['password'], isset($_POST['remember']));
-
-                    $session = Session::getInstance();
-                    if($user){
-
-                        $session->setFlash('success', "Vous êtes maintenant bien connecté");
-                        App::redirect('account_logged_in.php');
-                    }
-                    else{
-                        $session->setFlash('danger', "Identifiant ou mot de passe incorrect");
-                    }
-                }
-
-            ?>
 
             <div id="description">
                 <p> Camagru <br/> <br/>
@@ -113,7 +80,7 @@
             </div>
             <div id="sign_in">
                 <h4> Have an account ? Sign in ! </h4>
-                <form method="POST" action="">
+                <form method="POST" action="sign_in.php">
                     <input class="form" type="text" name="login" placeholder="E-mail / Username" required> <br/>
                     <input class="form" type="password" name="password" placeholder="Password" required> <br/>
                     <button class="form_submit" type="submit"> Sign-in ! </button><br/>
