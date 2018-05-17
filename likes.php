@@ -4,20 +4,17 @@
     $db = App::getDatabase();
     App::getAuth()->restrict();
 
-    // On veut appeler ce fichier en POST
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         http_response_code(403);
         die();
     }
 
-    // On peut voter pour ce type de contenu
     $accepted_refs = ['camagru.photo'];
     if (!in_array($_POST['ref_photo'], $accepted_refs)){
         http_response_code(403);
         die();
     }
 
-    // On déclenche le vote
     $vote = new Vote();
     if ($_POST['vote'] == 1){
         $success = $vote->like($db, $_POST['ref_photo'], $_POST['ref_id'], $_SESSION['auth']->id);

@@ -6,7 +6,6 @@
             $ascii = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return substr(str_shuffle(str_repeat($ascii, $length)), 0, $length);
         }
-
     }
 
 ?>

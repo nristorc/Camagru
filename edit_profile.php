@@ -73,7 +73,6 @@
             $upload_image = "images/" . $img['name'];
             move_uploaded_file($img['tmp_name'], $upload_image);
             Img::profil($upload_image, "images/miniatures_profil", $img['name'], 150, 150);
-            //Img::convertJPG($upload_image);
             unlink("images/" . $img['name']);
             $path_update = "images/miniatures_profil/" . $img['name'];
 
@@ -86,6 +85,7 @@
 ?>
 
 <?php require_once 'inc/header.php'; ?>
+<body>
 
     <?php if (!empty($errors)): ?>
         <div style="background-color: red; color: white;">
@@ -172,5 +172,6 @@
         <br/>
         <a href="account_logged_in.php">Retour Page de Profil</a>
     </div>
+</body>
     <script src="edit_profil.js"></script>
 <?php require_once 'inc/footer.php'; ?>

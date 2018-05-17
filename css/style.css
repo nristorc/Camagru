@@ -164,6 +164,27 @@ section
     z-index: 100;
 }
 
+#supper_web
+{
+    position: relative;
+}
+
+#default_canvas
+{
+    position: absolute;
+    top: 0;
+    left: 4px;
+    z-index: 0;
+}
+
+#output_web
+{
+    position: relative;
+    bottom: 154px;
+    left: 60px;
+    z-index: 100;
+}
+
 #filter
 {
     width: 1%;
@@ -226,6 +247,8 @@ section
     border: 1px solid #CCC;
     border-top: none;
 }
+
+
 
 /* --------------------------------------- ACCOUNT NOT LOGGED -------------------------------------------- */
 

@@ -41,10 +41,6 @@ class Vote{
         return false;
     }
 
-    /**
-     * Permet d'ajouter une classe is-liked ou is-disliked suivant un enregistrement
-     * @param $vote mixed false/PDORow
-     */
     public static function getClass($vote){
         if ($vote){
             return $vote->vote == 1 ? 'is-liked' : 'is-disliked';

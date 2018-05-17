@@ -3,9 +3,8 @@ require 'inc/bootstrap.php';
 App::getAuth()->restrict();
 require "inc/header.php";
 
-print_r($_SESSION);
-
 ?>
+<body>
 <section>
     <div id="add_image">
         <h3> Your upload </h3>
@@ -32,8 +31,12 @@ print_r($_SESSION);
         <div id="webcam" class="tabcontent">
             <br/>
             <video id="video"></video><br/>
-            <canvas id="canvas"></canvas>
-            <a href="webcamData.php"><button id="startbutton"> Take a photo </button></a><br/>
+            <div id="supper_web">
+                <img id="default_canvas" src="ressources/default_upload.jpg"/>
+                <canvas id="canvas"></canvas>
+                <img id="output_web" src=""/>
+            </div>
+            <button id="startbutton" onclick="default_canvas.remove()"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button><br/>
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
             </form>
@@ -81,4 +84,5 @@ print_r($_SESSION);
     </div>
     <script src="scripts.js"></script>
 </section>
+</body>
 <?php require 'inc/footer.php'?>

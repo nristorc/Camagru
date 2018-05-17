@@ -23,32 +23,24 @@ class Comments
         return $comments;
     }
 
-    // Suppression du commentaire en faisant remonter le enfants
     public function deleteComments($db, $id){
 
-        //On récupère le commentaire à supprimer
         $this->comment = $db->query('SELECT * FROM camagru.comments WHERE id_comment = ?', [$id])->fetch();
 
-        //On supprime le commentaire
         $db->query('DELETE FROM camagru.comments WHERE id_comment = ?', [$id]);
 
-        //On monte tous les enfants
         $db->query('UPDATE camagru.comments SET parent_id = ? WHERE parent_id = ?', [$this->comment->parent_id, $this->comment->id_comment]);
 
-        //return $comment;
     }
 
-    // Suppression du commentaire avec tous ses enfants
     public function deleteCommentsWithChildren($db, $id)
     {
-        //On récupère le commentaire à supprimer
         $this->comment = $db->query('SELECT * FROM camagru.comments WHERE id_comment = ?', [$id])->fetch();
         $this->findAllWithChildren($db, $this->comment->photo_id);
 
         $ids = $this->getChildrenIds($this->comments_by_id[$this->comment->id_comment]);
         $ids[] = $this->comment->id_comment;
 
-        //On supprime le commentaire
         return $db->query('DELETE FROM camagru.comments WHERE id_comment IN (' . implode(',', $ids) . ')');
     }
 

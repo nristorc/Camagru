@@ -30,8 +30,21 @@
     </header>
 <?php if (Session::getInstance()->hasFlashes()): ?>
     <?php foreach (Session::getInstance()->getFlashes() as $type => $message): ?>
-        <div style="background-color: red; color: white;"<?= $type; ?>>
-            <?= $message; ?>
-        </div>
+        <?php
+            if ($type == 'success'){
+                ?>
+                <div style="background-color: green; color: white;"<?= $type; ?>>
+                    <?= $message; ?>
+                </div> <?php
+            }
+            elseif ($type == 'danger'){
+                ?>
+                <div style="background-color: red; color: white;"<?= $type; ?>>
+                    <?= $message; ?>
+                </div>
+                <?php
+            }
+        ?>
+
     <?php endforeach; ?>
 <?php endif; ?>

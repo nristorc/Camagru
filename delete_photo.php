@@ -1,18 +1,17 @@
 <?php
 
-require 'inc/bootstrap.php';
-$db = App::getDatabase();
-App::getAuth()->restrict();
+    require 'inc/bootstrap.php';
+    $db = App::getDatabase();
+    App::getAuth()->restrict();
 
     $check = $db->query('SELECT * FROM camagru.photo')->fetch();
 
     if ($check->id_member == $_SESSION['auth']->id){
         if (isset($_GET['photo_id'])){
             $id_photo = htmlspecialchars($_GET['photo_id']);
-            //On récupère le commentaire à supprimer
+
             $pictures = $db->query('SELECT * FROM camagru.photo WHERE id_member = ?', [$_SESSION['auth']->id])->fetch();
 
-            //On supprime le commentaire
             $db->query('DELETE FROM camagru.photo WHERE id_photo = ?', [$_GET['photo_id']]);
             $db->query('DELETE FROM camagru.comments WHERE photo_id = ?', [$id_photo]);
             $db->query('DELETE FROM camagru.votes WHERE ref_id = ?', [$id_photo]);
@@ -25,6 +24,5 @@ App::getAuth()->restrict();
     else
         Session::getInstance()->setFlash('danger', "Vous n'êtes pas autorisé à supprimer cette photo");
         App::redirect("account_logged_in.php");
-
 
 ?>

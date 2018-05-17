@@ -128,28 +128,40 @@ function openTab(evt, tab)
 
 function showPicture() {
     var sourceOfPicture = "images/superposition_image/chat.png";
-    var img = document.getElementById('output2')
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
     img.src = sourceOfPicture.replace('90x90', '225x225');
     img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
 }
 
 function showPicture2() {
     var sourceOfPicture = "images/superposition_image/chien.png";
-    var img = document.getElementById('output2')
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
     img.src = sourceOfPicture.replace('90x90', '225x225');
     img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
 }
 
 function showPicture3() {
     var sourceOfPicture = "images/superposition_image/perroquet.png";
-    var img = document.getElementById('output2')
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
     img.src = sourceOfPicture.replace('90x90', '225x225');
     img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
 }
 
 function showPicture4() {
     var sourceOfPicture = "images/superposition_image/unicorn.png";
-    var img = document.getElementById('output2')
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
     img.src = sourceOfPicture.replace('90x90', '225x225');
     img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
 }

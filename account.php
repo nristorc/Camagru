@@ -114,4 +114,3 @@
         <script src="slideshow.js"></script>
     </body>
     <?php include "inc/footer.php"; ?>
-</html>
