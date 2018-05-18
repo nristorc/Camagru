@@ -105,6 +105,7 @@
             <button class="tablinks" onclick="openTab(event, 'profil_data')"> Change your personal data </button>
             <button class="tablinks" onclick="openTab(event, 'profil_pass')"> Change your password </button>
             <button class="tablinks" onclick="openTab(event, 'profil_pref')"> Change your settings </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_del')"> Delete account </button>
         </div>
 
         <div id="profil_photo" class="tabcontent">
@@ -149,13 +150,9 @@
                 Recevoir un email lorsqu'un commentaire est ajouté <br/>à l'une de mes photos<br/>
                 <form action="checkbox_profile.php" method="post">
                     <input id="check_pref" type="checkbox" name="checkbox" value="<?=$_SESSION['auth']->pref_comments_email;?>"
-
                         <?php
-
-                        if ($_SESSION['auth']->pref_comments_email == 1){
+                        if ($_SESSION['auth']->pref_comments_email == 1)
                             echo 'checked';
-                        }
-
                         ?>
                     >
                     <br/>
@@ -163,11 +160,14 @@
                 </form>
             </div>
             <br/>
-            <div>
-                <form action="delete_account.php" method="post">
-                    <button style="border: solid 3px crimson; font-weight: bold; color: crimson">SUPPRIMER SON COMPTE</button>
-                </form>
-            </div>
+        </div>
+        <div id="profil_del" class="tabcontent">
+            <h2> Supprimer votre compte </h2>
+            Attention, cette action est irreversible !
+            <br/>
+            <form action="delete_account.php" method="post">
+                <button style="border: solid 3px crimson; font-weight: bold; color: crimson">SUPPRIMER SON COMPTE</button>
+            </form>
         </div>
         <br/>
         <a href="account_logged_in.php">Retour Page de Profil</a>

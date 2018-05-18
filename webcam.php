@@ -14,8 +14,9 @@ require "inc/header.php";
         while ($display_gallery = $ret->fetch())
         {
             ?>
-            <div>
-                <img id=past_upload" src="<?= $display_gallery->path_to_photo;?>" /> <br/>
+            <div id="past_upload">
+                <img src="<?= $display_gallery->path_to_photo;?>"/>
+                <br/>
                 <?= $display_gallery->creation_date; ?> <br/><br/>
             </div>
             <?php
@@ -30,13 +31,15 @@ require "inc/header.php";
         </div>
         <div id="webcam" class="tabcontent">
             <br/>
-            <video id="video"></video><br/>
-            <div id="supper_web">
-                <img id="default_canvas" src="ressources/default_upload.jpg"/>
+            <video id="video"></video>
+            <br/>
+            <div class="wrapper">
                 <canvas id="canvas"></canvas>
                 <img id="output_web" src=""/>
             </div>
-            <button id="startbutton" onclick="default_canvas.remove()"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button><br/>
+            <br/>
+            <button id="startbutton" onclick="default_canvas.remove()"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button>
+            <br/>
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
             </form>
@@ -59,6 +62,7 @@ require "inc/header.php";
                     <img id="output2" src=""/>
                 </div>
            </form>
+            <br/>
             <form method="post" id="final_submit" action="webcamData.php">
                 <input type="submit" value="Valider" name="submit"/>
             </form>
@@ -68,17 +72,20 @@ require "inc/header.php";
     <div id="edit_image">
         <div id="watermarks">
             <h3> Watermarks </h3>
-            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png" onclick="showPicture()">
-                <img src="images/superposition_image/chat.png" name="href">
+            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png" onclick="superpChat(this)">
+                <img src="images/superposition_image/chat.png" alt="photo_chat">
             </button><br/>
-            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png" onclick="showPicture2()">
-                <img src="images/superposition_image/chien.png" name="href">
+            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png" onclick="superpChien(this)">
+                <img src="images/superposition_image/chien.png" alt="photo_chien">
             </button><br/>
-            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png" onclick="showPicture3()">
-                <img src="images/superposition_image/perroquet.png" name="href">
+            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png" onclick="superpPerroquet(this)">
+                <img src="images/superposition_image/perroquet.png" alt="photo_perroquet">
             </button><br/>
-            <button id="superp_photo_licorne" data-href="images/superposition_image/unicorn.png" onclick="showPicture4()">
-                <img src="images/superposition_image/unicorn.png" name="href">
+            <button id="superp_photo_unicorn" data-href="images/superposition_image/unicorn.png" onclick="superpLicorne(this)">
+                <img src="images/superposition_image/unicorn.png" alt="photo_licorne">
+            </button><br/>
+            <button id="superp_photo_chevre" data-href="images/superposition_image/chevre.png" onclick="superpChevre(this)">
+                <img src="images/superposition_image/chevre.png" alt="photo_chevre">
             </button><br/>
         </div>
     </div>

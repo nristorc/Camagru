@@ -1,6 +1,6 @@
 <?php require 'inc/bootstrap.php';
 
-	/*$secret = "6LcKs1gUAAAAAIjzpGtaDf68G3teftD7q1EIEUi6";
+	$secret = "6LcKs1gUAAAAAIjzpGtaDf68G3teftD7q1EIEUi6";
     $response = $_POST['g-recaptcha-response'];
 	$remoteip = $_SERVER['REMOTE_ADDR'];
 	$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
@@ -8,8 +8,10 @@
         . "&response=" . $response
         . "&remoteip=" . $remoteip ;
 	$decode = json_decode(file_get_contents($api_url), true);
-	if ($decode['success'] == true) {
-        */if (!empty($_POST)) {
+	if ($decode['success'] == true)
+	{
+        if (!empty($_POST))
+        {
             $errors = array();
 
             $db = App::getDatabase();
@@ -20,25 +22,24 @@
             $validator->isDate('birthdate', "Votre date de naissance semble être erronée");
 
             $validator->isAlpha('login', "Votre login n'est pas valide (alphanumérique)");
-            if ($validator->isValid()) {
+            if ($validator->isValid())
                 $validator->isUniq('login', $db, 'camagru.members', 'Ce login est déja pris');
-            }
             $validator->isEmail('email', "Votre email n'est pas valide");
-            if ($validator->isValid()) {
+            if ($validator->isValid())
                 $validator->isUniq('email', $db, 'camagru.members', "Cet email est déjà utilisé pour un autre compte");
-            }
             $validator->isConfirmed('password', "Vous devez renseigner un mot de passe valide");
 
-            if ($validator->isValid()) {
+            if ($validator->isValid())
+            {
                 App::getAuth()->register($db, $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['login'], $_POST['password'], $_POST['email']);
 
                 Session::getInstance()->setFlash('success', 'Un email de confirmation vous a été envoyé pour valider votre compte');
 
                 App::redirect('account.php');
-            } else {
-                $errors = $validator->getErrors();
             }
-        //}
+            else
+                $errors = $validator->getErrors();
+        }
     }
 ?>
 
@@ -67,7 +68,7 @@
                     <input class="form" type="email" name="email" placeholder="Email Address" required> <br/>
                     <input class="form" type="password" name="password" placeholder="Password" required> <br/>
                     <input class="form" type="password" name="password_confirm" placeholder="Confirm Password" required> <br/>
-                    <!--<div class="g-recaptcha" data-sitekey="6LcKs1gUAAAAAFzW-Eqb1W_lryR98wVFOmM6tK7U"></div>-->
+                    <div class="g-recaptcha" data-sitekey="6LcKs1gUAAAAAFzW-Eqb1W_lryR98wVFOmM6tK7U"></div>
                     <button class="form_submit" type="submit"> Sign-up ! </button><br/>
                 </form>
             </div>
@@ -84,7 +85,7 @@
                     <input class="form" type="text" name="login" placeholder="E-mail / Username" required> <br/>
                     <input class="form" type="password" name="password" placeholder="Password" required> <br/>
                     <button class="form_submit" type="submit"> Sign-in ! </button><br/>
-                    <input type="checkbox" name="remember" value="1" /> Remember Me <br/>
+                    <input type="checkbox" name="remember" value="1"> Remember Me <br/>
                     <a href="forgotten_password.php"> Forgot your password ? </a>
                 </form>
             </div>

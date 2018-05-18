@@ -1,80 +1,124 @@
-$(document).ready(function($){
+function superpChat(e)
+{
+        var request = new XMLHttpRequest();
+        var params = "href="+e.getAttribute('data-href');
+        var sourceOfPicture = "images/superposition_image/chat.png";
+        var img = document.getElementById('output2');
+        var img2 = document.getElementById('output_web');
+        img.src = sourceOfPicture.replace('90x90', '225x225');
+        img.style.display = "block";
+        img2.src = sourceOfPicture.replace('90x90', '225x225');
+        img2.style.display = "block";
+        console.log(e.getAttribute('data-href'));
+        request.open('POST', 'webcamData.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function()
+        {
+            if (request.readyState === 4 && request.status === 200)
+            {
+                console.log(request.responseText);
+            }
+        }
+        request.send(params);
 
-    var $superposition_chat = $('#superp_photo_chat');
+}
 
-    var $superposition_chien = $('#superp_photo_chien');
-
-    var $superposition_perroquet = $('#superp_photo_perroquet');
-
-    var $superposition_licorne = $('#superp_photo_licorne');
-
-    $superposition_chat.click(function(e){
-        e.preventDefault();
-        superposition_chat_funct();
-    });
-
-    $superposition_chien.click(function(e){
-        e.preventDefault();
-        superposition_chien_funct();
-    });
-
-    $superposition_perroquet.click(function(e){
-        e.preventDefault();
-        superposition_perroquet_funct();
-    });
-
-    $superposition_licorne.click(function(e){
-        e.preventDefault();
-        superposition_licorne_funct();
-    });
-
-    function superposition_chat_funct() {
-        $.post('webcamData.php', {
-            href: $superposition_chat.data('href')
-
-        }).done(function (data, textStatus, jqXHR) {
-            console.log(data);
-
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-        });
+function superpChien(e)
+{
+    var request = new XMLHttpRequest();
+    var params = "href="+e.getAttribute('data-href');
+    var sourceOfPicture = "images/superposition_image/chien.png";
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
+    console.log(e.getAttribute('data-href'));
+    request.open('POST', 'webcamData.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.onreadystatechange = function()
+    {
+        if (request.readyState === 4 && request.status === 200)
+        {
+            console.log(request.responseText);
+        }
     }
+    request.send(params);
 
-    function superposition_licorne_funct() {
-        $.post('webcamData.php', {
-            href: $superposition_licorne.data('href')
+}
 
-        }).done(function (data, textStatus, jqXHR) {
-            console.log(data);
-
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-        });
+function superpPerroquet(e)
+{
+    var request = new XMLHttpRequest();
+    var params = "href="+e.getAttribute('data-href');
+    var sourceOfPicture = "images/superposition_image/perroquet.png";
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
+    console.log(e.getAttribute('data-href'));
+    request.open('POST', 'webcamData.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.onreadystatechange = function()
+    {
+        if (request.readyState === 4 && request.status === 200)
+        {
+            console.log(request.responseText);
+        }
     }
+    request.send(params);
 
-    function superposition_chien_funct() {
-        $.post('webcamData.php', {
-            href: $superposition_chien.data('href')
+}
 
-        }).done(function (data, textStatus, jqXHR) {
-            console.log(data);
-
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-        });
+function superpLicorne(e)
+{
+    var request = new XMLHttpRequest();
+    var params = "href="+e.getAttribute('data-href');
+    var sourceOfPicture = "images/superposition_image/unicorn.png";
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
+    console.log(e.getAttribute('data-href'));
+    request.open('POST', 'webcamData.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.onreadystatechange = function()
+    {
+        if (request.readyState === 4 && request.status === 200)
+        {
+            console.log(request.responseText);
+        }
     }
+    request.send(params);
 
-    function superposition_perroquet_funct() {
-        $.post('webcamData.php', {
-            href: $superposition_perroquet.data('href')
+}
 
-        }).done(function (data, textStatus, jqXHR) {
-            console.log(data);
-
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-        });
+function superpChevre(e)
+{
+    var request = new XMLHttpRequest();
+    var params = "href="+e.getAttribute('data-href');
+    var sourceOfPicture = "images/superposition_image/chevre.png";
+    var img = document.getElementById('output2');
+    var img2 = document.getElementById('output_web');
+    img.src = sourceOfPicture.replace('90x90', '225x225');
+    img.style.display = "block";
+    img2.src = sourceOfPicture.replace('90x90', '225x225');
+    img2.style.display = "block";
+    console.log(e.getAttribute('data-href'));
+    request.open('POST', 'webcamData.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.onreadystatechange = function()
+    {
+        if (request.readyState === 4 && request.status === 200)
+        {
+            console.log(request.responseText);
+        }
     }
+    request.send(params);
 
-
-});
+}

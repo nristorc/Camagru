@@ -5,12 +5,18 @@
     $db = App::getDatabase();
 
     $vote = false;
+
     if (isset($_SESSION['auth']->id)){
         $vote = $db->query('SELECT * FROM camagru.votes WHERE ref_photo = ? AND ref_id = ? AND user_id = ?',
             ['camagru.photo', $_GET['id_photo'], $_SESSION['auth']->id])->fetch();
     }
 
     $gallery = $db->query('SELECT * FROM camagru.photo WHERE id_photo = ?', [$_GET['id_photo']])->fetch();
+
+    if (!isset($_GET['id_photo']) || $_GET['id_photo'] != $gallery->id_photo){
+        Session::getInstance()->setFlash('danger', "La photo recherchée n'existe pas");
+        App::redirect("index.php");
+    }
 
 ?>
 

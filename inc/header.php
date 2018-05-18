@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
-        <!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <title> Camagru </title>
     </head>
     <header>

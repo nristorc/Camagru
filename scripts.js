@@ -3,35 +3,9 @@
     var streaming = false,
         video        = document.querySelector('#video'),
         canvas       = document.querySelector('#canvas'),
-        photo        = document.querySelector('#photo'),
         startbutton  = document.querySelector('#startbutton'),
-        nonebutton = document.querySelector('#nonebutton'),
-        graybutton = document.querySelector('#graybutton'),
-        sepiabutton = document.querySelector('#sepiabutton'),
-        blurbutton = document.querySelector('#blurbutton'),
-        brightbutton = document.querySelector('#brightbutton'),
-        contrastbutton = document.querySelector('#contrastbutton'),
-        rev1button = document.querySelector('#rev1button'),
-        rev2button = document.querySelector('#rev2button'),
-        rev3button = document.querySelector('#rev3button'),
-        saturbutton = document.querySelector('#saturbutton'),
-        invertbutton = document.querySelector('#invertbutton'),
         width = 500,
         height = 0;
-
-    var filters = [
-        'none',
-        'grayscale',
-        'sepia',
-        'blur',
-        'brightness',
-        'contrast',
-        'hue-rotate',
-        'hue-rotate2',
-        'hue-rotate3',
-        'saturate',
-        'invert'
-    ];
 
     let constraints = {audio: false, video: true};
     navigator.mediaDevices = undefined;
@@ -62,8 +36,6 @@
         canvas.width = width;
         canvas.height = height;
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-        var data = canvas.toDataURL('image/png', 0.5);
-        //photo.setAttribute('src', data);
     }
 
     function uploadPic()
@@ -74,14 +46,6 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'webcamData.php', true);
         console.log(xhr);
-        xhr.upload.onprogress = function(e)
-        {
-            if (e.lenghtComputable)
-            {
-                var percentComplete = (e.loaded / e.total) * 100;
-                alert('Successfully uploaded');
-            }
-        };
         xhr.onload = function () {
 
         };
@@ -121,47 +85,4 @@ function openTab(evt, tab)
 
     document.getElementById(tab).style.display = "block";
     evt.currentTarget.className += " active";
-}
-
-/* -------------------------------------------------------------- */
-
-
-function showPicture() {
-    var sourceOfPicture = "images/superposition_image/chat.png";
-    var img = document.getElementById('output2');
-    var img2 = document.getElementById('output_web');
-    img.src = sourceOfPicture.replace('90x90', '225x225');
-    img.style.display = "block";
-    img2.src = sourceOfPicture.replace('90x90', '225x225');
-    img2.style.display = "block";
-}
-
-function showPicture2() {
-    var sourceOfPicture = "images/superposition_image/chien.png";
-    var img = document.getElementById('output2');
-    var img2 = document.getElementById('output_web');
-    img.src = sourceOfPicture.replace('90x90', '225x225');
-    img.style.display = "block";
-    img2.src = sourceOfPicture.replace('90x90', '225x225');
-    img2.style.display = "block";
-}
-
-function showPicture3() {
-    var sourceOfPicture = "images/superposition_image/perroquet.png";
-    var img = document.getElementById('output2');
-    var img2 = document.getElementById('output_web');
-    img.src = sourceOfPicture.replace('90x90', '225x225');
-    img.style.display = "block";
-    img2.src = sourceOfPicture.replace('90x90', '225x225');
-    img2.style.display = "block";
-}
-
-function showPicture4() {
-    var sourceOfPicture = "images/superposition_image/unicorn.png";
-    var img = document.getElementById('output2');
-    var img2 = document.getElementById('output_web');
-    img.src = sourceOfPicture.replace('90x90', '225x225');
-    img.style.display = "block";
-    img2.src = sourceOfPicture.replace('90x90', '225x225');
-    img2.style.display = "block";
 }
