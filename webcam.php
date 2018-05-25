@@ -7,7 +7,7 @@ require "inc/header.php";
 <body>
 <section>
     <div id="add_image">
-        <h3> Your upload </h3>
+        <h3> Vos Montages </h3>
         <?php
         $db = App::getDatabase();
         $ret = $db->query("SELECT login, path_to_photo, id_photo, creation_date FROM camagru.photo  WHERE id_member = ? ORDER BY creation_date DESC ", [$_SESSION['auth']->id]);
@@ -26,8 +26,8 @@ require "inc/header.php";
 
     <div id="image">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'webcam')"> Image from Webcam </button>
-            <button class="tablinks" onclick="openTab(event, 'file_upload')"> Image from Computer </button>
+            <button class="tablinks" onclick="openTab(event, 'webcam')"> Accéder à la Webcam </button>
+            <button class="tablinks" onclick="openTab(event, 'file_upload')"> Accéder à vos documents </button>
         </div>
         <div id="webcam" class="tabcontent">
             <br/>
@@ -38,7 +38,7 @@ require "inc/header.php";
                 <img id="output_web" src=""/>
             </div>
             <br/>
-            <button id="startbutton"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button>
+            <button id="startbutton"><a style="color: black; text-decoration: none" href="webcamData.php"> Prendre une photo </a></button>
             <br/>
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
@@ -50,7 +50,7 @@ require "inc/header.php";
 
         <div id="file_upload" class="tabcontent" style="display: block">
             <form method="post" action="webcamData.php" enctype="multipart/form-data" id="form">
-                Select image to upload:
+                Selectionner une image:
                 <input type="file" name="file" id="file" onchange="form.submit();"/><br/><br/>
                 <div id="wrapper">
                     <img id="default_upload" src="ressources/default_upload.jpg"/>

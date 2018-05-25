@@ -43,7 +43,7 @@
 
         <section id="section_account">
             <div id="sign_up">
-                <h4> Sign up to see photos from your friends. </h4>
+                <h4> Inscrivez-vous pour poster vos plus beaux montages </h4>
                 <?php if (!empty($errors)): ?>
                     <div style="background-color: red; color: white;">
                         <p>Vous n'avez pas rempli le formulaire correctement</p>
@@ -56,34 +56,34 @@
 
                 <?php endif;?>
                 <form method="POST" action="">
-                    <input class="form" type="text" name="firstname" placeholder="First Name" required> <br/>
-                    <input class="form" type="text" name="lastname" placeholder="Last Name" required> <br/>
+                    <input class="form" type="text" name="firstname" placeholder="Prénom" required> <br/>
+                    <input class="form" type="text" name="lastname" placeholder="Nom" required> <br/>
                     <input class="form" type="text" name="birthdate" placeholder="Date de Naissance (JJ/MM/AAAA)" required> <br/>
-                    <input class="form" type="text" name="login" placeholder="Username" required> <br/>
-                    <input class="form" type="email" name="email" placeholder="Email Address" required> <br/>
-                    <input class="form" type="password" name="password" placeholder="Password" required> <br/>
-                    <input class="form" type="password" name="password_confirm" placeholder="Confirm Password" required> <br/>
+                    <input class="form" type="text" name="login" placeholder="Login" required> <br/>
+                    <input class="form" type="email" name="email" placeholder="Adresse Email" required> <br/>
+                    <input class="form" type="password" name="password" placeholder="Mot de Passe" required> <br/>
+                    <input class="form" type="password" name="password_confirm" placeholder="Confirmation Mot de Passe" required> <br/>
 
                     <?= $captcha->html(); ?>
 
-                    <button class="form_submit" type="submit"> Sign-up ! </button><br/>
+                    <button class="form_submit" type="submit"> S'inscrire ! </button><br/>
                 </form>
             </div>
 
             <div id="description">
                 <p> Camagru <br/> <br/>
-                    Is a social network where you can put photo of you and your friends !
-                    Like, comment and share !
+                    Un réseau social pour partager des montages inédits !
+                    Likez, Commentez et Partagez !
                 </p>
             </div>
             <div id="sign_in">
-                <h4> Have an account ? Sign in ! </h4>
+                <h4> Vous avez déjà un compte ? Connectez-vous ! </h4>
                 <form method="POST" action="sign_in.php">
-                    <input class="form" type="text" name="login" placeholder="E-mail / Username" required> <br/>
-                    <input class="form" type="password" name="password" placeholder="Password" required> <br/>
-                    <button class="form_submit" type="submit"> Sign-in ! </button><br/>
-                    <input type="checkbox" name="remember" value="1"> Remember Me <br/>
-                    <a href="forgotten_password.php"> Forgot your password ? </a>
+                    <input class="form" type="text" name="login" placeholder="E-mail / Login" required> <br/>
+                    <input class="form" type="password" name="password" placeholder="Mot de Passe" required> <br/>
+                    <button class="form_submit" type="submit"> Se connecter ! </button><br/>
+                    <input type="checkbox" name="remember" value="1"> Se souvenir de moi <br/>
+                    <a href="forgotten_password.php"> Mot de passe oublié ? </a>
                 </form>
             </div>
         </section>

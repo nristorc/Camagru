@@ -101,11 +101,11 @@
 
     <div id="edit_profil">
         <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'profil_photo')" id="defaultOpen"> Change your profil picture </button>
-            <button class="tablinks" onclick="openTab(event, 'profil_data')"> Change your personal data </button>
-            <button class="tablinks" onclick="openTab(event, 'profil_pass')"> Change your password </button>
-            <button class="tablinks" onclick="openTab(event, 'profil_pref')"> Change your settings </button>
-            <button class="tablinks" onclick="openTab(event, 'profil_del')"> Delete account </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_photo')" id="defaultOpen"> Modifier sa photo de profil </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_data')"> Modifier ses données personnelles </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_pass')"> Modifier son mot de passe </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_pref')"> Préférences </button>
+            <button class="tablinks" onclick="openTab(event, 'profil_del')"> Supprimer son Compte </button>
         </div>
 
         <div id="profil_photo" class="tabcontent">
@@ -145,11 +145,11 @@
         </div>
 
         <div id="profil_pref" class="tabcontent">
-            <h2> Modifiez ses préférences </h2>
+            <h2> Mes préférences </h2>
             <div>
                 Recevoir un email lorsqu'un commentaire est ajouté <br/>à l'une de mes photos<br/>
                 <form action="checkbox_profile.php" method="post">
-                    <input id="check_pref" type="checkbox" name="checkbox" value="<?=$_SESSION['auth']->pref_comments_email;?>"
+                    <input style="margin: 0 50%;" id="check_pref" type="checkbox" name="checkbox" value="<?=$_SESSION['auth']->pref_comments_email;?>"
                         <?php
                         if ($_SESSION['auth']->pref_comments_email == 1)
                             echo 'checked';

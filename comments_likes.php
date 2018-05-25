@@ -23,8 +23,6 @@
 <?php require "inc/header.php"; ?>
 <body>
     <div id="comment_page">
-    <h1>Les Commentaires et les Likes</h1>
-
     <article>
         <h1><?=$gallery->login;?></h1>
         <img id="comment_photo" src="<?= $gallery->path_to_photo;?>">

@@ -33,7 +33,7 @@ while ($display_gallery = $ret->fetch()) {
         <?= $display_gallery->login;?><br/>
         <hr/>
         <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
-        <a href="comments_likes.php?id_photo=<?=htmlentities($display_gallery->id_photo);?>">Commenter et Liker</a>
+        <a href="comments_likes.php?id_photo=<?=htmlentities($display_gallery->id_photo);?>">Plus de détails</a>
     </div>
 
     <?php
