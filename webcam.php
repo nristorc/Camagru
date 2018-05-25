@@ -38,7 +38,7 @@ require "inc/header.php";
                 <img id="output_web" src=""/>
             </div>
             <br/>
-            <button id="startbutton" onclick="default_canvas.remove()"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button>
+            <button id="startbutton"><a style="color: black; text-decoration: none" href="webcamData.php"> Take a photo </a></button>
             <br/>
             <form method="POST" name="form1">
                 <input name="hidden_data" id='hidden_data' type="hidden"/>
