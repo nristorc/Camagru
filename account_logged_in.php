@@ -37,7 +37,7 @@ require 'inc/header.php'
         <div id="photo_index">
             <?= $display_gallery->login;?><br/>
             <hr/>
-            <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
+            <img onclick='self.location.href="comments_likes.php?id_photo=<?=$display_gallery->id_photo;?>"' src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
             Upload date: <?= $display_gallery->creation_date;?><br/><br/>
             <button class="button share_twitter" data-url="http://127.0.0.1:8080/Camagru/comments_likes.php?id_photo=<?= $display_gallery->id_photo;?>" style="background-color: #55ACEE; width:45%; margin: 0 auto; vertical-align: middle"">
             <p style="text-align: center; color: white;"><img src="ressources/twitter_share.png" style="position: relative; width: 10%; margin-right: 8%">Partager sur Twitter</p>

@@ -15,7 +15,7 @@ require "inc/header.php";
         {
             ?>
             <div id="past_upload">
-                <img src="<?= $display_gallery->path_to_photo;?>"/>
+                <img onclick='self.location.href="comments_likes.php?id_photo=<?=$display_gallery->id_photo;?>"' src="<?= $display_gallery->path_to_photo;?>"/>
                 <br/>
                 <?= $display_gallery->creation_date; ?> <br/><br/>
             </div>
