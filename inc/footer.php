@@ -15,8 +15,6 @@
         </div>
     </div>
 </footer>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="likes.js"></script>
 <script src="comments.js"></script>
 <script src="webcam.js"></script>
 </html>

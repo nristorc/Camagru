@@ -1,15 +1,15 @@
-jQuery(document).ready(function($){
+(function(){
+    var x = document.getElementsByClassName("reply");
+        for (var i = 0; i < x.length; i++) {
+            x[i].addEventListener("click", function (e) {
+                e.preventDefault();
+                var parent_id = this.getAttribute('data-id');
 
-    $('.reply').click(function(e){
-        e.preventDefault();
-        var $form = $('#form-comment');
-        var $this = $(this);
-        var parent_id = $this.data('id'); //$this.attr('data-id');
-        var $comment = $('#comment-' + parent_id);
+                document.querySelector('h4').textContent = "Répondre à ce commentaire";
 
-        $form.find('h4').text("Répondre à ce commentaire");
-        $('#parent_id').val(parent_id);
-        $comment.after($form);
-    })
-
-});
+                var parent_val = document.getElementById('parent_id');
+                parent_val.value = parent_id;
+            }, false);
+        }
+    }
+)();

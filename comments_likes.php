@@ -22,20 +22,21 @@
 
 <?php require "inc/header.php"; ?>
 <body>
+    <div id="comment_page">
     <h1>Les Commentaires et les Likes</h1>
 
     <article>
         <h1><?=$gallery->login;?></h1>
-        <img src="<?= $gallery->path_to_photo;?>">
+        <img id="comment_photo" src="<?= $gallery->path_to_photo;?>">
 
         <div style="text-align: right;">
             <div class="vote <?= Vote::getClass($vote);?>" id="vote" data-ref_photo="camagru.photo" data-ref_id="<?=$gallery->id_photo;?>" data-user_id="<?=$_SESSION['auth']->id;?>">
                 <div class="vote_bar">
-                    <div class="vote_progress" style="width:<?= ($gallery->like_count + $gallery->dislike_count) == 0 ? 100 : round(100 * ($gallery->like_count / ($gallery->like_count + $gallery->dislike_count))); ?>%;"></div>
+                    <div class="vote_progress" id="vote_like_bar" style="width:<?= ($gallery->like_count + $gallery->dislike_count) == 0 ? 100 : round(100 * ($gallery->like_count / ($gallery->like_count + $gallery->dislike_count))); ?>%;"></div>
                 </div>
                 <div class="vote_btns">
-                    <button class="vote_btn vote_like"><span id="like_count"><?=$gallery->like_count;?></span></button>
-                    <button class="vote_btn vote_dislike"><span id="dislike_count"><?=$gallery->dislike_count;?></span></button>
+                    <button class="vote_btn vote_like"><i class="far fa-thumbs-up"><span id="like_count"><?=$gallery->like_count;?></span></i></button>
+                    <button class="vote_btn vote_dislike"><i class="far fa-thumbs-down"><span id="dislike_count"><?=$gallery->dislike_count;?></span></i></button>
                 </div>
             </div>
         </div>
@@ -91,5 +92,7 @@
             <button type="submit">Commenter</button>
         </div>
     </form>
+    </div>
+<script src="likes.js"></script>
 </body>
 <?php require "inc/footer.php"; ?>

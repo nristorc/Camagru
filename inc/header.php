@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <title> Camagru </title>
     </head>
@@ -12,9 +13,6 @@
             <div id="logo">
                 <a href="index.php"><img src="ressources/logo.png" alt="logo" title="logo"></a>
             </div>
-            <!--<div id="search_bar">
-                <input class="search" type="text" placeholder="&#128269Rechercher">
-            </div>-->
             <div id="profil_icon">
                 <a href="webcam.php"><img src="ressources/camera.png" alt="camera" title="camera"></a>
                 <?php if (isset($_SESSION['auth'])): ?>

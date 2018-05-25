@@ -269,12 +269,23 @@ section
 
 /* --------------------------------------- ACCOUNT NOT LOGGED -------------------------------------------- */
 
+@media (max-width: 750px) {
+    #description
+    {
+        display: none;
+    }
+
+    #section_account
+    {
+        display: block;
+    }
+}
+
 #section_account
 {
-    display: flex;
     background-color: white;
     justify-content: space-between;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 5%;
     border: solid ghostwhite;
     border-radius: 3px;
@@ -466,7 +477,6 @@ form
 
 .vote_progress
 {
-    width: 0%;
     height: 4px;
     background-color: #63b96b;
     transition: width 0.3s;
@@ -494,4 +504,23 @@ form
 .vote_dislike:hover, .is-disliked .vote_dislike
 {
     color: #F2504b;
+}
+
+/* --------------------------------------- COMMENTAIRE --------------------------------- */
+
+#comment_page
+{
+    width: 50%;
+    max-width: 50%;
+    margin-left: 20%;
+    margin-top: 10px;
+    margin-right: 20%;
+    border: thin solid whitesmoke;
+    background-color: white;
+    text-align: center;
+}
+
+#comment_photo
+{
+    width: 70%;
 }

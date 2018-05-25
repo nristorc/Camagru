@@ -18,7 +18,7 @@ function superpChat(e)
             {
                 console.log(request.responseText);
             }
-        }
+        };
         request.send(params);
 
 }
@@ -43,7 +43,7 @@ function superpChien(e)
         {
             console.log(request.responseText);
         }
-    }
+    };
     request.send(params);
 
 }
@@ -68,7 +68,7 @@ function superpPerroquet(e)
         {
             console.log(request.responseText);
         }
-    }
+    };
     request.send(params);
 
 }
@@ -93,7 +93,7 @@ function superpLicorne(e)
         {
             console.log(request.responseText);
         }
-    }
+    };
     request.send(params);
 
 }
@@ -118,7 +118,7 @@ function superpChevre(e)
         {
             console.log(request.responseText);
         }
-    }
+    };
     request.send(params);
 
 }

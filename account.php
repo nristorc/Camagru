@@ -1,17 +1,13 @@
 <?php require 'inc/bootstrap.php';
 
-	$secret = "6LcKs1gUAAAAAIjzpGtaDf68G3teftD7q1EIEUi6";
-    $response = $_POST['g-recaptcha-response'];
-	$remoteip = $_SERVER['REMOTE_ADDR'];
-	$api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
-        . $secret
-        . "&response=" . $response
-        . "&remoteip=" . $remoteip ;
-	$decode = json_decode(file_get_contents($api_url), true);
-	if ($decode['success'] == true)
-	{
-        if (!empty($_POST))
-        {
+    $captcha = new Recaptcha('6Ld4nVoUAAAAAGVRIL3UPWUqcKZEQmQMHzA6M1sa','6Ld4nVoUAAAAANPCj0KYt6A0B2tor4lPa6Ukunx3');
+    if (!empty($_POST))
+    {
+        if ($captcha->checkCode($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']) === false){
+            Session::getInstance()->setFlash('danger', 'Le captcha ne semble pas valide');
+            App::redirect('account.php');
+        }
+        else{
             $errors = array();
 
             $db = App::getDatabase();
@@ -34,7 +30,6 @@
                 App::getAuth()->register($db, $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['login'], $_POST['password'], $_POST['email']);
 
                 Session::getInstance()->setFlash('success', 'Un email de confirmation vous a été envoyé pour valider votre compte');
-
                 App::redirect('account.php');
             }
             else
@@ -68,7 +63,9 @@
                     <input class="form" type="email" name="email" placeholder="Email Address" required> <br/>
                     <input class="form" type="password" name="password" placeholder="Password" required> <br/>
                     <input class="form" type="password" name="password_confirm" placeholder="Confirm Password" required> <br/>
-                    <div class="g-recaptcha" data-sitekey="6LcKs1gUAAAAAFzW-Eqb1W_lryR98wVFOmM6tK7U"></div>
+
+                    <?= $captcha->html(); ?>
+
                     <button class="form_submit" type="submit"> Sign-up ! </button><br/>
                 </form>
             </div>

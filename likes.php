@@ -4,7 +4,7 @@
     $db = App::getDatabase();
     App::getAuth()->restrict();
 
-    if($_SERVER['REQUEST_METHOD'] != 'POST'){
+    if(!isset($_POST['ref_id']) OR !isset($_POST['user_id'])){
         http_response_code(403);
         die();
     }

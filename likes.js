@@ -1,40 +1,41 @@
-$(document).ready(function($){
-
-    var $vote = $('#vote');
-
-    $('.vote_like', $vote).click(function(e){
+    document.querySelector('.vote_like', '#vote').addEventListener('click', function (e) {
         e.preventDefault();
         vote(1);
     });
-    $('.vote_dislike', $vote).click(function(e){
+
+    document.querySelector('.vote_dislike', '#vote').addEventListener('click', function (e) {
         e.preventDefault();
         vote(-1);
     });
 
     function vote(value) {
-        $.post('likes.php', {
-            ref_photo: $vote.data('ref_photo'),
-            ref_id: $vote.data('ref_id'),
-            user_id: $vote.data('user_id'),
-            vote: value
-        }).done(function (data, textStatus, jqXHR) {
-            $('#dislike_count').text(data.dislike_count);
-            $('#like_count').text(data.like_count);
-            $vote.removeClass('is-liked is-disliked');
-            if (data.success){
-                if(value === 1){
-                    $vote.addClass('is-liked');
+
+        var vote = document.getElementById('vote');
+
+        var request = new XMLHttpRequest();
+
+        request.open('POST', 'likes.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                vote.classList.remove("is-liked", "is-disliked");
+                data_response = JSON.parse(request.responseText);
+                document.getElementById("vote_like_bar").style.width=100*(parseInt(data_response.like_count)/(parseInt(data_response.like_count)+parseInt(data_response.dislike_count)))+"%";
+                if (value === 1) {
+                    vote.classList.add("is-liked");
+                    document.getElementById("like_count").innerHTML = data_response.like_count;
+                    document.getElementById("dislike_count").innerHTML = data_response.dislike_count;
                 }
-                else{
-                    $vote.addClass('is-disliked');
+                if (value === -1) {
+                    vote.classList.add("is-disliked");
+                    document.getElementById("like_count").innerHTML = data_response.like_count;
+                    document.getElementById("dislike_count").innerHTML = data_response.dislike_count;
                 }
+                 if (data_response.like_count === 0 && data_response.dislike_count === 0) {
+                     document.getElementById("vote_like_bar").style.width = "100%";
+                     vote.classList.remove("is-liked", "is-disliked");
+                 }
             }
-
-            var percentage = Math.round(100 * (data.like_count / (parseInt(data.dislike_count) + parseInt(data.like_count))));
-            $('.vote_progress').css('width', percentage + '%');
-
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-        });
+        };
+        request.send("ref_photo="+vote.getAttribute('data-ref_photo')+"&ref_id="+vote.getAttribute('data-ref_id')+"&user_id="+vote.getAttribute('data-user_id')+"&vote="+value);
     }
-});

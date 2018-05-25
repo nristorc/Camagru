@@ -38,7 +38,13 @@ require 'inc/header.php'
             <?= $display_gallery->login;?><br/>
             <hr/>
             <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
-            Upload date: <?= $display_gallery->creation_date;?><br/>
+            Upload date: <?= $display_gallery->creation_date;?><br/><br/>
+            <button class="button share_twitter" data-url="http://127.0.0.1:8080/Camagru/comments_likes.php?id_photo=<?= $display_gallery->id_photo;?>" style="background-color: #55ACEE; width:45%; margin: 0 auto; vertical-align: middle"">
+            <p style="text-align: center; color: white;"><img src="ressources/twitter_share.png" style="position: relative; width: 10%; margin-right: 8%">Partager sur Twitter</p>
+            </button><br><br>
+            <button class="button share_facebook" data-url="http://127.0.0.1:8080/Camagru/comments_likes.php?id_photo=<?= $display_gallery->id_photo;?>" style="background-color: #4C67A1; width:45%; margin: 0 auto; vertical-align: middle"">
+                <p style="text-align: center; color: white;"><img src="ressources/facebook_share.png" style="position: relative; width: 10%; margin-right: 8%">Partager sur Facebook</p>
+            </button><br><br>
             <a href="delete_photo.php?photo_id=<?=$display_gallery->id_photo;?>">Supprimer</a>
         </div>
 
@@ -53,5 +59,6 @@ require 'inc/header.php'
     }
 
     ?>
+<script src="share_social.js"></script>
 </body>
 <?php include "inc/footer.php"; ?>
