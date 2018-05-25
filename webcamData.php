@@ -38,8 +38,10 @@
             $_SESSION['fileToUpload'] = $_FILES['file'];
             $ext = strtolower(substr($_SESSION['fileToUpload']['name'], -3));
             $allow_ext = array('jpg', 'png', 'gif');
-            if (!(in_array($ext, $allow_ext)))
+            if (!(in_array($ext, $allow_ext))){
                 Session::getInstance()->setFlash('danger', "Votre fichier n'a pas un format d'image autorisé");
+                App::redirect('webcam.php');
+            }
             else {
                 $upload_image = "images/tmp/" . $_SESSION['fileToUpload']['name'];
 
@@ -62,8 +64,10 @@
             $_SESSION['fileToUpload'] = $_FILES['file'];
             $ext = strtolower(substr($_SESSION['fileToUpload']['name'], -3));
             $allow_ext = array('jpg', 'png', 'gif');
-            if (!(in_array($ext, $allow_ext)))
+            if (!(in_array($ext, $allow_ext))){
                 Session::getInstance()->setFlash('danger', "Votre fichier n'a pas un format d'image autorisé");
+                App::redirect('webcam.php');
+            }
             else {
                 $upload_image = "images/tmp/" . $_SESSION['fileToUpload']['name'];
 
