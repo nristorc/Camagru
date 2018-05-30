@@ -23,7 +23,7 @@
             $validator->isEmail('email', "Votre email n'est pas valide");
             if ($validator->isValid())
                 $validator->isUniq('email', $db, 'camagru.members', "Cet email est déjà utilisé pour un autre compte");
-            $validator->isConfirmed('password', "Vous devez renseigner un mot de passe valide");
+            $validator->isConfirmed('password', "Vous devez renseigner un mot de passe valide - 6 caractères minimum dont au moin 1 chiffre et 1 majuscule");
 
             if ($validator->isValid())
             {
@@ -61,7 +61,7 @@
                 <input class="form" type="text" name="birthdate" placeholder="Date de Naissance (JJ/MM/AAAA)" required> <br/>
                 <input class="form" type="text" name="login" placeholder="Login" required> <br/>
                 <input class="form" type="email" name="email" placeholder="Adresse Email" required> <br/>
-                <input class="form" type="password" name="password" placeholder="Mot de Passe" required> <br/>
+                <input class="form" type="password" name="password" title="Veuillez saisir un mot de passe contenant 6 caractères minimum dont au moin 1 chiffre et 1 majuscule" placeholder="Mot de Passe" required> <br/>
                 <input class="form" type="password" name="password_confirm" placeholder="Confirmation Mot de Passe" required> <br/>
 
                 <?= $captcha->html(); ?>

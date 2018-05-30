@@ -48,7 +48,7 @@
 
         public function isConfirmed($field, $errorMsg = ''){
             $value = $this->getField($field);
-            if(empty($value) || $value != $this->getField($field . '_confirm')){
+            if(empty($value) || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/', $this->getField($field)) ||$value != $this->getField($field . '_confirm')){
                 $this->errors[$field] = $errorMsg;
             }
         }
