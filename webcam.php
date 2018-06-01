@@ -72,19 +72,19 @@ require "inc/header.php";
     <div id="edit_image">
         <div id="watermarks">
             <h3> Watermarks </h3>
-            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png" onclick="superpChat(this)">
+            <button id="superp_photo_chat" data-href="images/superposition_image/chat.png" onclick="superpPhoto(this, 'chat')">
                 <img src="images/superposition_image/chat.png" alt="photo_chat">
             </button><br/>
-            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png" onclick="superpChien(this)">
+            <button id="superp_photo_chien" data-href="images/superposition_image/chien.png" onclick="superpPhoto(this, 'chien')">
                 <img src="images/superposition_image/chien.png" alt="photo_chien">
             </button><br/>
-            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png" onclick="superpPerroquet(this)">
+            <button id="superp_photo_perroquet" data-href="images/superposition_image/perroquet.png" onclick="superpPhoto(this, 'perroquet')">
                 <img src="images/superposition_image/perroquet.png" alt="photo_perroquet">
             </button><br/>
-            <button id="superp_photo_unicorn" data-href="images/superposition_image/unicorn.png" onclick="superpLicorne(this)">
+            <button id="superp_photo_unicorn" data-href="images/superposition_image/unicorn.png" onclick="superpPhoto(this, 'unicorn')">
                 <img src="images/superposition_image/unicorn.png" alt="photo_licorne">
             </button><br/>
-            <button id="superp_photo_chevre" data-href="images/superposition_image/chevre.png" onclick="superpChevre(this)">
+            <button id="superp_photo_chevre" data-href="images/superposition_image/chevre.png" onclick="superpPhoto(this, 'chevre')">
                 <img src="images/superposition_image/chevre.png" alt="photo_chevre">
             </button><br/>
         </div>
