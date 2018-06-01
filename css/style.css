@@ -589,3 +589,16 @@ footer
 {
     width: 70%;
 }
+
+/* --------------------------------------- TOOLTIP --------------------------------- */
+
+.tooltip{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #222222;
+    padding: 3px 10px;
+    font-size: 0.815em;
+    color: white;
+    border-radius: 3px;
+}

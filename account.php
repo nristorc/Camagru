@@ -13,17 +13,17 @@
             $db = App::getDatabase();
             $validator = new Validator($_POST);
 
-            $validator->isName('firstname', "Votre Prénom contient une erreur de frappe. Merci de mettre un espace pour les Prénoms composés");
-            $validator->isName('lastname', "Votre Nom contient une erreur de frappe. Merci de mettre un espace pour les Noms composés");
+            $validator->isName('firstname', "Votre Prénom contient une erreur de frappe");
+            $validator->isName('lastname', "Votre Nom contient une erreur de frappe");
             $validator->isDate('birthdate', "Votre date de naissance semble être erronée");
 
-            $validator->isAlpha('login', "Votre login n'est pas valide (alphanumérique)");
+            $validator->isAlpha('login', "Votre login n'est pas valide");
             if ($validator->isValid())
                 $validator->isUniq('login', $db, 'camagru.members', 'Ce login est déja pris');
             $validator->isEmail('email', "Votre email n'est pas valide");
             if ($validator->isValid())
                 $validator->isUniq('email', $db, 'camagru.members', "Cet email est déjà utilisé pour un autre compte");
-            $validator->isConfirmed('password', "Vous devez renseigner un mot de passe valide - 6 caractères minimum dont au moin 1 chiffre et 1 majuscule");
+            $validator->isConfirmed('password', "Vous devez renseigner un mot de passe valide");
 
             if ($validator->isValid())
             {
@@ -56,12 +56,12 @@
 
             <?php endif;?>
             <form method="POST" action="">
-                <input class="form" type="text" name="firstname" placeholder="Prénom" required> <br/>
-                <input class="form" type="text" name="lastname" placeholder="Nom" required> <br/>
-                <input class="form" type="text" name="birthdate" placeholder="Date de Naissance (JJ/MM/AAAA)" required> <br/>
-                <input class="form" type="text" name="login" placeholder="Login" required> <br/>
-                <input class="form" type="email" name="email" placeholder="Adresse Email" required> <br/>
-                <input class="form" type="password" name="password" title="Veuillez saisir un mot de passe contenant 6 caractères minimum dont au moin 1 chiffre et 1 majuscule" placeholder="Mot de Passe" required> <br/>
+                <input class="form" type="text" name="firstname" placeholder="Prénom" title="Mettre un espace pour les Prénoms composés" required> <br/>
+                <input class="form" type="text" name="lastname" placeholder="Nom" title=" Mettre un espace pour les Noms composés" required> <br/>
+                <input class="form" type="text" name="birthdate" placeholder="Date de Naissance" title="Format JJ / MM / AAAA" required> <br/>
+                <input class="form" type="text" name="login" placeholder="Login" title="Uniquement des caractères Alphanumériques" required> <br/>
+                <input class="form" type="email" name="email" placeholder="Adresse Email" title="Format xxx@xxx.xxx" required> <br/>
+                <input class="form" type="password" name="password" title="Min. 6 caractères dont au moins 1 chiffre et 1 majuscule" placeholder="Mot de Passe" required> <br/>
                 <input class="form" type="password" name="password_confirm" placeholder="Confirmation Mot de Passe" required> <br/>
 
                 <?= $captcha->html(); ?>
@@ -110,6 +110,7 @@
     </div>
     <br/>
     <script src="slideshow.js"></script>
+    <script src="tooltip.js"></script>
 </body>
 <div class="clear"></div>
 <?php include "inc/footer.php"; ?>
