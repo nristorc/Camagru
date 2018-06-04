@@ -38,21 +38,37 @@ body:after
 
 /* ----------------------------------- HEADER -------------------------------- */
 
-@media (max-width: 370px)
+/* Chrome */
+@media (max-width: 410px)
 {
     #logo_img
     {
         content: url("../ressources/logo_min.png");
-        height: 40px;
     }
 }
 
-@media (min-width: 370px)
+@media (min-width: 410px)
 {
     #logo_img
     {
         content: url("../ressources/logo.png");
-        height: 40px;
+    }
+}
+
+/* Firefox */
+@media (max-width: 410px)
+{
+    #logo_img:before
+    {
+        content: url("../ressources/logo_min.png");
+    }
+}
+
+@media (min-width: 410px)
+{
+    #logo_img:before
+    {
+        content: url("../ressources/logo.png");
     }
 }
 
@@ -383,6 +399,7 @@ footer
 
 .g-recaptcha{
     text-align: -webkit-center;
+    text-align: -moz-center;
 }
 
 /* ----------------------------------------- SLIDESHOW ------------------------------------------ */
@@ -476,7 +493,7 @@ footer
     margin: 5px;
 }
 
-#button_edit_1, #button_edit_2 ,#button_edit_3 ,#button_edit_4
+#button_edit_1, #button_edit_2 ,#button_edit_3 ,#button_edit_4, #button_reset, #button_reset_2
 {
     width: 250px;
     height: 30px;

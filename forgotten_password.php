@@ -22,12 +22,11 @@
 
 <?php require 'inc/header.php' ?>
 <body>
-    <h1>Mot de passe oublié</h1>
+    <h2 style="text-align: center">Mot de passe oublié</h2>
 
-    <form method="post" action="">
-        <label for="">Email</label>
-        <input type="email" name="email"><br/>
-        <button type="submit">Se connecter</button>
+    <form style="text-align: center" method="post" action="">
+        <input class="form" placeholder="Adresse Email" type="email" name="email"><br/>
+        <button class="form_submit" id="button_reset" type="submit">Soumettre</button>
     </form>
 </body>
     <div class="clear"></div>

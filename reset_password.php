@@ -37,14 +37,12 @@
 
 <?php require 'inc/header.php' ?>
 <body>
-    <h1>Réinitialiser mon mot de passe</h1>
+<h2 style="text-align: center">Réinitialiser mon mot de passe</h2>
 
-    <form method="post" action="">
-        <label for="">Nouveau Mot de passe</label>
-        <input type="password" name="password"><br/>
-        <label for="">Confirmation du Mot de passe</label>
-        <input type="password" name="password_confirm"><br/>
-        <button type="submit">Réinitialiser mon mot de passe</button>
+    <form style="text-align: center" method="post" action="">
+        <input class="form" type="password" name="password" placeholder="Nouveau Mot de Passe"><br/>
+        <input class="form" type="password" name="password_confirm" placeholder="Confirmation du Mot de Passe"><br/>
+        <button id="button_reset_2" type="submit">Réinitialiser mon mot de passe</button>
     </form>
 </body>
     <div class="clear"></div>

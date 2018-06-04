@@ -1,3 +1,5 @@
+<?php include_once 'config/setup.php' ?>
+
 <?php include "inc/bootstrap.php";
 $auth = App::getAuth();
 
@@ -24,7 +26,7 @@ if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbrPage){
 else
     $currentPage = 1;
 
-$ret = $db->query("SELECT login, path_to_photo, id_photo FROM camagru.photo ORDER BY creation_date DESC LIMIT ". (($currentPage - 1) * $perPage) .", $perPage");
+$ret = $db->query("SELECT * FROM camagru.photo ORDER BY creation_date DESC LIMIT ". (($currentPage - 1) * $perPage) .", $perPage");
 while ($display_gallery = $ret->fetch()) {
 
     ?>
@@ -33,6 +35,11 @@ while ($display_gallery = $ret->fetch()) {
         <?= $display_gallery->login;?><br/>
         <hr/>
         <img src="<?= $display_gallery->path_to_photo;?>" /> <br/><br/>
+        <div style="display: flex; justify-content: space-evenly;">
+            <p><?php echo $display_gallery->like_count?> likes</p>
+            <p><?php echo $display_gallery->dislike_count?> dislikes</p>
+        </div>
+
         <a href="comments_likes.php?id_photo=<?=htmlentities($display_gallery->id_photo);?>">Plus de détails</a>
     </div>
 
