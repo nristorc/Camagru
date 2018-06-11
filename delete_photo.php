@@ -4,7 +4,7 @@
     $db = App::getDatabase();
     App::getAuth()->restrict();
 
-    $check = $db->query('SELECT * FROM camagru.photo')->fetch();
+    $check = $db->query('SELECT * FROM camagru.photo WHERE id_member = ?', [$_SESSION['auth']->id])->fetch();
 
     if ($check->id_member == $_SESSION['auth']->id){
         if (isset($_GET['photo_id'])){
