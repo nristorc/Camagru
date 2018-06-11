@@ -6,7 +6,7 @@
 
     $id_comment = $_GET['id_comment'];
 
-    $check = $db->query("SELECT * FROM camagru.comments")->fetch();
+    $check = $db->query("SELECT * FROM camagru.comments WHERE member_id = ?", [$_SESSION['auth']->id])->fetch();
 
     if ($_SESSION['auth']->id != $check->member_id){
         Session::getInstance()->setFlash('danger', "Vous n'êtes pas autorisé à supprimer un commentaire que vous n'avez pas écrit");
