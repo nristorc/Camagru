@@ -123,9 +123,9 @@ superposables disponibles** et un **bouton permettant de prendre la photo**.
 
 # Partie bonus
 
-- “AJAXifier” les échanges avec le serveur **done**\
-- Faire un aperçu du rendu final en live, directement sur l’aperçu de la caméra\
-- Faire une pagination infinie sur la partie galerie\
+- “AJAXifier” les échanges avec le serveur **done**
+- Faire un aperçu du rendu final en live, directement sur l’aperçu de la caméra
+- Faire une pagination infinie sur la partie galerie
 - Pouvoir partager ses images sur les réseaux sociaux. **done: Facebook et Twitter**
 - Pouvoir faire un rendu d’un GIF animé
 
